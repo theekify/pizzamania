@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.PizzaMania" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/accentColor</item>
+        <item name="android:statusBarColor">@color/primaryDarkColor</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowBackground">@color/backgroundColor</item>
+    </style>
+
+    <!-- Reusable rounded TextInput style -->
+    <style name="PillTextField" parent="Widget.Material3.TextInputLayout.FilledBox.Dense">
+        <item name="boxBackgroundMode">filled</item>
+        <item name="boxBackgroundColor">@color/surfaceColor</item>
+        <item name="boxStrokeColor">@color/surfaceColor</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.PizzaMania.Pill</item>
+
+        <item name="hintTextColor">@color/textSecondary</item>
+        <item name="startIconTint">@color/textSecondary</item>
+        <item name="endIconTint">@color/textSecondary</item>
+    </style>
+
+    <style name="ShapeAppearance.PizzaMania.Pill" parent="ShapeAppearance.Material3.Corner.None">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">28dp</item> <!-- pill -->
+    </style>
+</resources>

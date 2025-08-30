@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <!-- Top Tagline with red line -->
+    <LinearLayout
+        android:id="@+id/topTagLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp">
+
+        <TextView
+            android:id="@+id/topTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HOT &amp; FRESH PIZZAS"
+            android:textColor="#FF5722"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginTop="15dp"/>
+
+        <!-- Red Line -->
+        <View
+            android:layout_width="40dp"
+            android:layout_height="1.5dp"
+            android:background="#FF5722"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
+    <!-- Big Bold Black Heading -->
+    <TextView
+        android:id="@+id/titleBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Taste the Difference with a"
+        android:textSize="34sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/topTagLine"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp" />
+
+    <!-- Big Bold Red Heading -->
+    <TextView
+        android:id="@+id/titleRed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fresh Pizza"
+        android:textSize="36sp"
+        android:textColor="#FF5722"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/titleBlack"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Subtitle Text -->
+    <TextView
+        android:id="@+id/subText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Wood-fired pizzas made with premium ingredients, delivered hot in 30 minutes or less"
+        android:textSize="16sp"
+        android:textColor="#666666"
+        android:lineSpacingExtra="4dp"
+        app:layout_constraintTop_toBottomOf="@id/titleRed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp" />
+
+    <!-- Pizza Image -->
+    <ImageView
+        android:id="@+id/pizzaImage"
+        android:layout_width="450dp"
+        android:layout_height="0dp"
+        android:src="@drawable/welcomee"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toBottomOf="@id/subText"
+        app:layout_constraintBottom_toTopOf="@id/btnContinue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="40dp" />
+
+    <!-- Continue Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Get Started"
+        android:textFontWeight="@integer/material_motion_duration_short_2"
+        android:textSize="22sp"
+        android:textAllCaps="false"
+        android:textColor="@color/backgroundColor"
+        android:background="@drawable/arrow_circle"
+        android:backgroundTint="@color/primaryColor"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/Widget.AppCompat.Button.Borderless" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

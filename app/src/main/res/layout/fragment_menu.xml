@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF5F5F5">
+
+    <!-- Header Section with Search Bar Only -->
+    <LinearLayout
+        android:id="@+id/headerSection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- What would you like to eat? Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What would you like"
+            android:textSize="28sp"
+            android:fontFamily="@font/poppins_light"
+            android:textColor="#FF1A1A1A"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_marginTop="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="to eat?"
+            android:textSize="32sp"
+            android:fontFamily="@font/poppins_regular"
+            android:textStyle="bold"
+            android:textColor="#FF1A1A1A"
+            android:lineSpacingMultiplier="1.2" />
+
+        <!-- Search Bar -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#FFE0E0E0"
+            app:strokeWidth="5dp"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@color/darker_white"
+                android:paddingHorizontal="18dp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_search"
+                    app:tint="#FF999999" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Search your favourite pizza"
+                    android:textSize="16sp"
+                    android:textColor="#FF999999"
+                    android:layout_marginStart="14dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <!-- Modern Top App Bar (keeping your original structure but hidden) -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Modern subtle divider (keeping your original structure but hidden) -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar" />
+
+    <!-- Menu Content Container with improved spacing -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:paddingHorizontal="0dp"
+        android:paddingBottom="80dp"
+        android:scrollbars="none"
+        android:background="#Ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerSection">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
+
+            <!-- Special Offer Banner - Removed shadow and changed background -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                android:layout_marginBottom="28dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@color/darker_white"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Special Offer"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="#FF1A1A1A" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:fontFamily="@font/poppins_light"
+                            android:layout_height="wrap_content"
+                            android:text="Discount 20% off"
+                            android:textSize="15sp"
+                            android:textColor="#FF666666"
+                            android:layout_marginTop="6dp" />
+
+
+                        <!-- Fixed Order Now Button - Changed height to wrap_content -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Order Now"
+                            android:textSize="14sp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="3dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:background="@drawable/selected_filter_bg"
+                            android:paddingHorizontal="16dp" />
+
+                    </LinearLayout>
+
+                    <!-- Pizza Image - replace with your drawable -->
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/special_offer_pizza1"
+                        android:layout_gravity="center" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Popular Pizza Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Popular Pizza"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#FF1A1A1A" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="See All"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFF4444" />
+
+            </LinearLayout>
+
+            <!-- Filter Tabs -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All Pizzas"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/selected_filter_bg"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="12dp"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vegetarian"
+                    android:textSize="16sp"
+                    android:textColor="#FF666666"
+                    android:background="@drawable/unselected_filter_bg"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="12dp"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Specials"
+                    android:textSize="16sp"
+                    android:textColor="#FF666666"
+                    android:background="@drawable/unselected_filter_bg"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="12dp" />
+
+            </LinearLayout>
+
+            <!-- Your RecyclerView for API data - CRITICAL: Keep the same ID and item layout -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:paddingTop="0dp"
+                android:paddingBottom="16dp"
+                tools:itemCount="5"
+                tools:listitem="@layout/ic_menu" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
