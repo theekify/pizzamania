@@ -8,8 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
         <!-- Top Image (Reduced height) -->
         <ImageView
@@ -21,80 +21,80 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_gravity="center_vertical">
+            android:padding="16dp">
 
             <TextView
                 android:id="@+id/signupTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign Up"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
                 android:layout_marginBottom="24dp"
-                android:fontFamily="sans-serif-medium"/>
+                android:fontFamily="sans-serif-medium"
+                android:text="Sign Up"
+                android:textColor="@android:color/black"
+                android:textSize="28sp"
+                android:textStyle="bold" />
 
             <!-- Name -->
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:hint="Username"
-                app:startIconDrawable="@drawable/ic_profile"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:boxCornerRadiusTopStart="28dp"
-                app:boxCornerRadiusTopEnd="28dp"
-                app:boxCornerRadiusBottomStart="28dp"
                 app:boxCornerRadiusBottomEnd="28dp"
-                android:layout_marginBottom="12dp">
+                app:boxCornerRadiusBottomStart="28dp"
+                app:boxCornerRadiusTopEnd="28dp"
+                app:boxCornerRadiusTopStart="28dp"
+                app:startIconDrawable="@drawable/ic_profile">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nameInput"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:inputType="textPersonName"/>
+                    android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Email -->
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:hint="Email address"
-                app:startIconDrawable="@drawable/ic_mail"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:boxCornerRadiusTopStart="28dp"
-                app:boxCornerRadiusTopEnd="28dp"
-                app:boxCornerRadiusBottomStart="28dp"
                 app:boxCornerRadiusBottomEnd="28dp"
-                android:layout_marginBottom="12dp">
+                app:boxCornerRadiusBottomStart="28dp"
+                app:boxCornerRadiusTopEnd="28dp"
+                app:boxCornerRadiusTopStart="28dp"
+                app:startIconDrawable="@drawable/ic_mail">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailInput"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:inputType="textEmailAddress"/>
+                    android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Password -->
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
                 android:hint="Password"
-                app:startIconDrawable="@drawable/ic_lock"
-                app:endIconMode="password_toggle"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:boxCornerRadiusTopStart="28dp"
-                app:boxCornerRadiusTopEnd="28dp"
-                app:boxCornerRadiusBottomStart="28dp"
                 app:boxCornerRadiusBottomEnd="28dp"
-                android:layout_marginBottom="24dp">
+                app:boxCornerRadiusBottomStart="28dp"
+                app:boxCornerRadiusTopEnd="28dp"
+                app:boxCornerRadiusTopStart="28dp"
+                app:endIconMode="password_toggle"
+                app:startIconDrawable="@drawable/ic_lock">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordInput"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:inputType="textPassword"/>
+                    android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Continue Button -->
@@ -102,21 +102,21 @@
                 android:id="@+id/signupBtn"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="@color/primaryColor"
+                android:elevation="2dp"
                 android:text="Sign Up"
                 android:textAllCaps="false"
-                android:textSize="16sp"
                 android:textColor="@android:color/white"
-                android:backgroundTint="@color/primaryColor"
-                android:layout_marginBottom="24dp"
-                android:elevation="2dp" />
+                android:textSize="16sp" />
 
             <!-- Divider with lines -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="16dp"
                 android:gravity="center"
-                android:layout_marginBottom="16dp">
+                android:orientation="horizontal">
 
                 <View
                     android:layout_width="0dp"
@@ -127,10 +127,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Or sign up with"
-                    android:textColor="@android:color/darker_gray"
                     android:paddingStart="8dp"
                     android:paddingEnd="8dp"
+                    android:text="Or sign up with"
+                    android:textColor="@android:color/darker_gray"
                     android:textSize="12sp" />
 
                 <View
@@ -144,67 +144,67 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="24dp"
                 android:gravity="center"
-                android:layout_marginBottom="24dp">
+                android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="0dp"
                     android:layout_height="46dp"
                     android:layout_weight="1"
-                    android:text="Google"
+                    android:background="@drawable/rounded_social_button"
+                    android:backgroundTint="@null"
                     android:drawableLeft="@drawable/ic_google"
                     android:drawablePadding="4dp"
-                    android:background="@drawable/rounded_social_button"
-                    android:textColor="@android:color/black"
-                    android:textAllCaps="false"
-                    android:textSize="12sp"
-                    android:backgroundTint="@null"
-                    android:stateListAnimator="@null"
                     android:paddingLeft="8dp"
-                    android:paddingRight="8dp"/>
+                    android:paddingRight="8dp"
+                    android:stateListAnimator="@null"
+                    android:text="Google"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
 
                 <Space
                     android:layout_width="12dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="0dp"
                     android:layout_height="46dp"
                     android:layout_weight="1"
-                    android:text="Meta"
+                    android:background="@drawable/rounded_social_button"
+                    android:backgroundTint="@null"
                     android:drawableLeft="@drawable/ic_meta"
                     android:drawablePadding="4dp"
-                    android:background="@drawable/rounded_social_button"
-                    android:textColor="@android:color/black"
-                    android:textAllCaps="false"
-                    android:textSize="12sp"
-                    android:backgroundTint="@null"
-                    android:stateListAnimator="@null"
                     android:paddingLeft="8dp"
-                    android:paddingRight="8dp"/>
+                    android:paddingRight="8dp"
+                    android:stateListAnimator="@null"
+                    android:text="Meta"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <!-- Terms & Conditions -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="By creating an account, you agree to our Terms &amp; Conditions"
+                android:layout_marginBottom="16dp"
                 android:gravity="center"
+                android:text="By creating an account, you agree to our Terms &amp; Conditions"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="12sp"
-                android:layout_marginBottom="16dp"/>
+                android:textSize="12sp" />
 
             <!-- Footer -->
             <TextView
                 android:id="@+id/loginLink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Already have an account? Login"
                 android:gravity="center"
+                android:text="Already have an account? Login"
                 android:textColor="@color/primaryColor"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

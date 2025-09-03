@@ -9,6 +9,7 @@
         android:id="@+id/btn_take_photo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="Take Photo"
         android:textAllCaps="false"
         android:drawableStart="@drawable/ic_camera"

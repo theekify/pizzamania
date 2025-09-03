@@ -8,19 +8,18 @@
     tools:context=".MainActivity">
 
 
-
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <!-- Fragment container -->
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <!-- Bottom navigation -->
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -30,7 +29,7 @@
             android:background="@color/white"
             app:itemIconTint="@color/textPrimary"
             app:itemTextColor="@color/textPrimary"
-            app:menu="@menu/bottom_nav_menu"/>
+            app:menu="@menu/bottom_nav_menu" />
     </LinearLayout>
 
 
