@@ -1,0 +1,501 @@
+Index: app/src/main/res/layout/fragment_branch.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<ScrollView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:padding=\"16dp\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"vertical\">\r\n\r\n        <!-- inputs same as before -->\r\n        <EditText\r\n            android:id=\"@+id/branchNameInput\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:hint=\"Branch Name\" />\r\n\r\n        <EditText\r\n            android:id=\"@+id/branchAddressInput\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:hint=\"Branch Address\" />\r\n\r\n        <EditText\r\n            android:id=\"@+id/branchPhoneInput\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:hint=\"Phone Number\"\r\n            android:inputType=\"phone\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/btnAddBranch\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Add Branch\" />\r\n\r\n        <androidx.recyclerview.widget.RecyclerView\r\n            android:id=\"@+id/recyclerBranches\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"16dp\" />\r\n    </LinearLayout>\r\n</ScrollView>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_branch.xml b/app/src/main/res/layout/fragment_branch.xml
+--- a/app/src/main/res/layout/fragment_branch.xml	(revision fff1993fca44a3cf8c6452168f6257bb02873cbd)
++++ b/app/src/main/res/layout/fragment_branch.xml	(date 1757483131903)
+@@ -2,43 +2,101 @@
+ <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:padding="16dp">
++    android:padding="16dp"
++    android:background="@android:color/white">
+ 
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+ 
+-        <!-- inputs same as before -->
+-        <EditText
+-            android:id="@+id/branchNameInput"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:hint="Branch Name" />
++        <!-- Header -->
++        <TextView
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:text="Branch Management"
++            android:layout_marginTop="25dp"
++            android:textSize="24sp"
++            android:textStyle="bold"
++            android:gravity="center"
++            android:textColor="@android:color/black"
++            android:layout_marginBottom="24dp"/>
++
++        <!-- Input Card -->
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:orientation="vertical"
++            android:padding="20dp"
++            android:background="@drawable/card_background"
++            android:elevation="2dp"
++            android:layout_marginBottom="24dp">
++
++            <TextView
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Add New Branch"
++                android:textSize="16sp"
++                android:textStyle="bold"
++                android:textColor="@android:color/black"
++                android:layout_marginBottom="16dp"/>
++
++            <EditText
++                android:id="@+id/branchNameInput"
++                android:layout_width="match_parent"
++                android:layout_height="48dp"
++                android:hint="Branch Name"
++                android:background="@drawable/edit_text_background"
++                android:paddingStart="12dp"
++                android:paddingEnd="12dp"
++                android:layout_marginBottom="12dp"/>
+ 
+-        <EditText
+-            android:id="@+id/branchAddressInput"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:hint="Branch Address" />
++            <EditText
++                android:id="@+id/branchAddressInput"
++                android:layout_width="match_parent"
++                android:layout_height="48dp"
++                android:hint="Branch Address"
++                android:background="@drawable/edit_text_background"
++                android:paddingStart="12dp"
++                android:paddingEnd="12dp"
++                android:layout_marginBottom="12dp"/>
+ 
+-        <EditText
+-            android:id="@+id/branchPhoneInput"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:hint="Phone Number"
+-            android:inputType="phone" />
++            <EditText
++                android:id="@+id/branchPhoneInput"
++                android:layout_width="match_parent"
++                android:layout_height="48dp"
++                android:hint="Phone Number"
++                android:inputType="phone"
++                android:background="@drawable/edit_text_background"
++                android:paddingStart="12dp"
++                android:paddingEnd="12dp"
++                android:layout_marginBottom="16dp"/>
+ 
+-        <Button
+-            android:id="@+id/btnAddBranch"
++            <Button
++                android:id="@+id/btnAddBranch"
++                android:layout_width="match_parent"
++                android:layout_height="48dp"
++                android:text="Add Branch"
++                android:textAllCaps="false"
++                android:fontFamily="sans-serif-medium"/>
++        </LinearLayout>
++
++        <!-- Branch List Section -->
++        <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:text="Add Branch" />
++            android:text="Branches"
++            android:textSize="18sp"
++            android:textStyle="bold"
++            android:textColor="@android:color/black"
++            android:layout_marginBottom="12dp"/>
+ 
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/recyclerBranches"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+-            android:layout_marginTop="16dp" />
++            android:clipToPadding="false"
++            android:paddingTop="4dp"
++            android:paddingBottom="8dp"/>
+     </LinearLayout>
+-</ScrollView>
++</ScrollView>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_welcome.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@drawable/bg\">\r\n\r\n    <!-- Top Tagline with red line -->\r\n    <LinearLayout\r\n        android:id=\"@+id/topTagLine\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"horizontal\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        android:layout_marginTop=\"40dp\"\r\n        android:layout_marginStart=\"20dp\">\r\n\r\n        <TextView\r\n            android:id=\"@+id/topTag\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"HOT &amp; FRESH PIZZAS\"\r\n            android:textColor=\"#FF5722\"\r\n            android:textSize=\"12sp\"\r\n            android:fontFamily=\"sans-serif-medium\"\r\n            android:layout_marginTop=\"15dp\"/>\r\n\r\n        <!-- Red Line -->\r\n        <View\r\n            android:layout_width=\"40dp\"\r\n            android:layout_height=\"1.5dp\"\r\n            android:background=\"#FF5722\"\r\n            android:layout_marginStart=\"8dp\"\r\n            android:layout_gravity=\"center_vertical\"\r\n            android:layout_marginTop=\"8dp\"/>\r\n    </LinearLayout>\r\n\r\n    <!-- Big Bold Black Heading -->\r\n    <TextView\r\n        android:id=\"@+id/titleBlack\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Taste the Difference with a\"\r\n        android:textSize=\"34sp\"\r\n        android:textColor=\"@android:color/black\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/topTagLine\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        android:layout_marginTop=\"10dp\"\r\n        android:layout_marginStart=\"20dp\" />\r\n\r\n    <!-- Big Bold Red Heading -->\r\n    <TextView\r\n        android:id=\"@+id/titleRed\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Fresh Pizza\"\r\n        android:textSize=\"36sp\"\r\n        android:textColor=\"#FF5722\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/titleBlack\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        android:layout_marginStart=\"20dp\"\r\n        android:layout_marginBottom=\"10dp\"/>\r\n\r\n    <!-- Subtitle Text -->\r\n    <TextView\r\n        android:id=\"@+id/subText\"\r\n        android:layout_width=\"0dp\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Wood-fired pizzas made with premium ingredients, delivered hot in 30 minutes or less\"\r\n        android:textSize=\"16sp\"\r\n        android:textColor=\"#666666\"\r\n        android:lineSpacingExtra=\"4dp\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/titleRed\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        android:layout_marginTop=\"16dp\"\r\n        android:layout_marginStart=\"20dp\"\r\n        android:layout_marginEnd=\"20dp\" />\r\n\r\n    <!-- Pizza Image -->\r\n    <ImageView\r\n        android:id=\"@+id/pizzaImage\"\r\n        android:layout_width=\"450dp\"\r\n        android:layout_height=\"0dp\"\r\n        android:src=\"@drawable/welcomee\"\r\n        android:scaleType=\"fitCenter\"\r\n        app:layout_constraintTop_toBottomOf=\"@id/subText\"\r\n        app:layout_constraintBottom_toTopOf=\"@id/btnContinue\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        android:layout_marginTop=\"30dp\"\r\n        android:layout_marginBottom=\"40dp\" />\r\n\r\n    <!-- Continue Button -->\r\n    <androidx.appcompat.widget.AppCompatButton\r\n        android:id=\"@+id/btnContinue\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"60dp\"\r\n        android:text=\"Get Started\"\r\n        android:textFontWeight=\"@integer/material_motion_duration_short_2\"\r\n        android:textSize=\"22sp\"\r\n        android:textAllCaps=\"false\"\r\n        android:textColor=\"@color/backgroundColor\"\r\n        android:background=\"@drawable/arrow_circle\"\r\n        android:backgroundTint=\"@color/primaryColor\"\r\n        android:layout_marginHorizontal=\"20dp\"\r\n        android:layout_marginBottom=\"30dp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        style=\"@style/Widget.AppCompat.Button.Borderless\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_welcome.xml b/app/src/main/res/layout/activity_welcome.xml
+--- a/app/src/main/res/layout/activity_welcome.xml	(revision fff1993fca44a3cf8c6452168f6257bb02873cbd)
++++ b/app/src/main/res/layout/activity_welcome.xml	(date 1757350634478)
+@@ -41,7 +41,7 @@
+         android:id="@+id/titleBlack"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="Taste the Difference with a"
++        android:text="Taste the Difference with"
+         android:textSize="34sp"
+         android:textColor="@android:color/black"
+         android:textStyle="bold"
+Index: app/src/main/res/layout/fragment_admin_pizza.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:orientation=\"vertical\"\r\n    android:padding=\"16dp\">\r\n\r\n    <!-- Pizza Input Form -->\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Add New Pizza\"\r\n        android:textSize=\"18sp\"\r\n        android:textStyle=\"bold\"\r\n        android:layout_marginBottom=\"16dp\"/>\r\n\r\n    <EditText\r\n        android:id=\"@+id/pizzaNameInput\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:hint=\"Pizza Name\"\r\n        android:layout_marginBottom=\"8dp\"/>\r\n\r\n    <EditText\r\n        android:id=\"@+id/pizzaPriceInput\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:hint=\"Price\"\r\n        android:inputType=\"numberDecimal\"\r\n        android:layout_marginBottom=\"8dp\"/>\r\n\r\n    <EditText\r\n        android:id=\"@+id/pizzaImageInput\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:hint=\"Image URL (optional)\"\r\n        android:inputType=\"textUri\"\r\n        android:layout_marginBottom=\"16dp\"/>\r\n\r\n    <Button\r\n        android:id=\"@+id/btnAddPizza\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Add Pizza\"\r\n        android:backgroundTint=\"@color/primaryColor\"\r\n        android:textColor=\"@android:color/white\"\r\n        android:layout_marginBottom=\"24dp\"/>\r\n\r\n    <!-- Pizza List -->\r\n    <TextView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Pizza Menu\"\r\n        android:textSize=\"18sp\"\r\n        android:textStyle=\"bold\"\r\n        android:layout_marginBottom=\"8dp\"/>\r\n\r\n    <androidx.recyclerview.widget.RecyclerView\r\n        android:id=\"@+id/recyclerPizzas\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"0dp\"\r\n        android:layout_weight=\"1\"/>\r\n\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_admin_pizza.xml b/app/src/main/res/layout/fragment_admin_pizza.xml
+--- a/app/src/main/res/layout/fragment_admin_pizza.xml	(revision fff1993fca44a3cf8c6452168f6257bb02873cbd)
++++ b/app/src/main/res/layout/fragment_admin_pizza.xml	(date 1757482774931)
+@@ -3,62 +3,100 @@
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical"
+-    android:padding="16dp">
++    android:padding="20dp"
++    android:background="@android:color/white">
++
++    <!-- Header Section -->
++    <TextView
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="Pizza Menu"
++        android:layout_marginTop="25dp"
++        android:textSize="24sp"
++        android:textStyle="bold"
++        android:textColor="@android:color/black"
++        android:gravity="center"
++        android:layout_marginBottom="24dp"/>
+ 
+-    <!-- Pizza Input Form -->
+-    <TextView
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:text="Add New Pizza"
+-        android:textSize="18sp"
+-        android:textStyle="bold"
+-        android:layout_marginBottom="16dp"/>
++    <!-- Add Pizza Card -->
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:orientation="vertical"
++        android:padding="20dp"
++        android:background="@drawable/card_background"
++        android:elevation="2dp"
++        android:layout_marginBottom="24dp">
++
++        <TextView
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:text="Add New Pizza"
++            android:textSize="16sp"
++            android:textStyle="bold"
++            android:textColor="@android:color/black"
++            android:layout_marginBottom="16dp"/>
+ 
+-    <EditText
+-        android:id="@+id/pizzaNameInput"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:hint="Pizza Name"
+-        android:layout_marginBottom="8dp"/>
++        <EditText
++            android:id="@+id/pizzaNameInput"
++            android:layout_width="match_parent"
++            android:layout_height="48dp"
++            android:hint="Pizza Name"
++            android:background="@drawable/edit_text_background"
++            android:paddingStart="12dp"
++            android:paddingEnd="12dp"
++            android:layout_marginBottom="12dp"/>
+ 
+-    <EditText
+-        android:id="@+id/pizzaPriceInput"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:hint="Price"
+-        android:inputType="numberDecimal"
+-        android:layout_marginBottom="8dp"/>
++        <EditText
++            android:id="@+id/pizzaPriceInput"
++            android:layout_width="match_parent"
++            android:layout_height="48dp"
++            android:hint="Price"
++            android:inputType="numberDecimal"
++            android:background="@drawable/edit_text_background"
++            android:paddingStart="12dp"
++            android:paddingEnd="12dp"
++            android:layout_marginBottom="12dp"/>
+ 
+-    <EditText
+-        android:id="@+id/pizzaImageInput"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:hint="Image URL (optional)"
+-        android:inputType="textUri"
+-        android:layout_marginBottom="16dp"/>
++        <EditText
++            android:id="@+id/pizzaImageInput"
++            android:layout_width="match_parent"
++            android:layout_height="48dp"
++            android:hint="Image URL (optional)"
++            android:inputType="textUri"
++            android:background="@drawable/edit_text_background"
++            android:paddingStart="12dp"
++            android:paddingEnd="12dp"
++            android:layout_marginBottom="16dp"/>
+ 
+-    <Button
+-        android:id="@+id/btnAddPizza"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:text="Add Pizza"
+-        android:backgroundTint="@color/primaryColor"
+-        android:textColor="@android:color/white"
+-        android:layout_marginBottom="24dp"/>
++        <Button
++            android:id="@+id/btnAddPizza"
++            android:layout_width="match_parent"
++            android:layout_height="48dp"
++            android:text="Add Pizza"
++            android:backgroundTint="@color/primaryColor"
++            android:textColor="@android:color/white"
++            android:textAllCaps="false"
++            android:fontFamily="sans-serif-medium"/>
++    </LinearLayout>
+ 
+-    <!-- Pizza List -->
++    <!-- Pizza List Section -->
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+-        android:text="Pizza Menu"
++        android:text="Menu Items"
+         android:textSize="18sp"
+         android:textStyle="bold"
+-        android:layout_marginBottom="8dp"/>
++        android:textColor="@android:color/black"
++        android:layout_marginBottom="12dp"/>
+ 
+     <androidx.recyclerview.widget.RecyclerView
+         android:id="@+id/recyclerPizzas"
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+-        android:layout_weight="1"/>
++        android:layout_weight="1"
++        android:clipToPadding="false"
++        android:paddingTop="4dp"
++        android:paddingBottom="8dp"/>
+ 
+ </LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/item_branch.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.cardview.widget.CardView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:layout_margin=\"6dp\"\r\n    app:cardCornerRadius=\"12dp\"\r\n    app:cardElevation=\"1dp\"\r\n    app:cardBackgroundColor=\"#FAFAFA\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"horizontal\"\r\n        android:padding=\"16dp\"\r\n        android:gravity=\"center_vertical\">\r\n\r\n        <!-- Branch Info -->\r\n        <LinearLayout\r\n            android:layout_width=\"0dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_weight=\"1\"\r\n            android:orientation=\"vertical\">\r\n\r\n            <TextView\r\n                android:id=\"@+id/branchName\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"Branch Name\"\r\n                android:textSize=\"16sp\"\r\n                android:textStyle=\"bold\"\r\n                android:textColor=\"#1A1A1A\"\r\n                android:layout_marginBottom=\"4dp\"/>\r\n\r\n            <TextView\r\n                android:id=\"@+id/branchAddress\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"Branch Address\"\r\n                android:textSize=\"14sp\"\r\n                android:textColor=\"#666666\"\r\n                android:layout_marginBottom=\"2dp\"\r\n                android:maxLines=\"2\"\r\n                android:ellipsize=\"end\"/>\r\n\r\n            <TextView\r\n                android:id=\"@+id/branchPhone\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"Phone Number\"\r\n                android:textSize=\"14sp\"\r\n                android:textColor=\"#888888\"\r\n                android:drawableStart=\"@android:drawable/ic_menu_call\"\r\n                android:drawablePadding=\"8dp\"\r\n                android:gravity=\"center_vertical\"/>\r\n        </LinearLayout>\r\n\r\n        <!-- Action Buttons -->\r\n        <LinearLayout\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\"\r\n            android:layout_marginStart=\"16dp\">\r\n\r\n            <com.google.android.material.button.MaterialButton\r\n                android:id=\"@+id/btnEdit\"\r\n                android:layout_width=\"40dp\"\r\n                android:layout_height=\"40dp\"\r\n                android:layout_marginEnd=\"8dp\"\r\n                android:backgroundTint=\"#E3F2FD\"\r\n                android:text=\"✏\uFE0F\"\r\n                android:textSize=\"16sp\"\r\n                app:cornerRadius=\"20dp\"\r\n                app:strokeWidth=\"0dp\"\r\n                android:insetTop=\"0dp\"\r\n                android:insetBottom=\"0dp\"\r\n                style=\"@style/Widget.MaterialComponents.Button.TextButton\"/>\r\n\r\n            <com.google.android.material.button.MaterialButton\r\n                android:id=\"@+id/btnDelete\"\r\n                android:layout_width=\"40dp\"\r\n                android:layout_height=\"40dp\"\r\n                android:backgroundTint=\"#FFEBEE\"\r\n                android:text=\"\uD83D\uDDD1\uFE0F\"\r\n                android:textSize=\"16sp\"\r\n                app:cornerRadius=\"20dp\"\r\n                app:strokeWidth=\"0dp\"\r\n                android:insetTop=\"0dp\"\r\n                android:insetBottom=\"0dp\"\r\n                style=\"@style/Widget.MaterialComponents.Button.TextButton\"/>\r\n        </LinearLayout>\r\n    </LinearLayout>\r\n</androidx.cardview.widget.CardView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/item_branch.xml b/app/src/main/res/layout/item_branch.xml
+--- a/app/src/main/res/layout/item_branch.xml	(revision fff1993fca44a3cf8c6452168f6257bb02873cbd)
++++ b/app/src/main/res/layout/item_branch.xml	(date 1757483810337)
+@@ -3,15 +3,16 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+-    android:layout_margin="6dp"
+-    app:cardCornerRadius="12dp"
++    android:layout_marginBottom="8dp"
++    app:cardCornerRadius="8dp"
+     app:cardElevation="1dp"
+-    app:cardBackgroundColor="#FAFAFA">
++    app:cardBackgroundColor="@android:color/white">
+ 
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
++        android:layout_marginTop="25dp"
+         android:padding="16dp"
+         android:gravity="center_vertical">
+ 
+@@ -29,8 +30,8 @@
+                 android:text="Branch Name"
+                 android:textSize="16sp"
+                 android:textStyle="bold"
+-                android:textColor="#1A1A1A"
+-                android:layout_marginBottom="4dp"/>
++                android:textColor="@android:color/black"
++                android:layout_marginBottom="6dp"/>
+ 
+             <TextView
+                 android:id="@+id/branchAddress"
+@@ -39,20 +40,31 @@
+                 android:text="Branch Address"
+                 android:textSize="14sp"
+                 android:textColor="#666666"
+-                android:layout_marginBottom="2dp"
++                android:layout_marginBottom="6dp"
+                 android:maxLines="2"
+                 android:ellipsize="end"/>
+ 
+-            <TextView
+-                android:id="@+id/branchPhone"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:text="Phone Number"
+-                android:textSize="14sp"
+-                android:textColor="#888888"
+-                android:drawableStart="@android:drawable/ic_menu_call"
+-                android:drawablePadding="8dp"
+-                android:gravity="center_vertical"/>
++            <LinearLayout
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:orientation="horizontal"
++                android:gravity="center_vertical">
++
++                <ImageView
++                    android:layout_width="16dp"
++                    android:layout_height="16dp"
++                    android:src="@drawable/ic_phone"
++                    android:tint="#666666"
++                    android:layout_marginEnd="6dp"/>
++
++                <TextView
++                    android:id="@+id/branchPhone"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:text="Phone Number"
++                    android:textSize="14sp"
++                    android:textColor="#666666"/>
++            </LinearLayout>
+         </LinearLayout>
+ 
+         <!-- Action Buttons -->
+@@ -60,34 +72,26 @@
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+-            android:layout_marginStart="16dp">
++            android:layout_marginStart="12dp">
+ 
+-            <com.google.android.material.button.MaterialButton
++            <ImageButton
+                 android:id="@+id/btnEdit"
+                 android:layout_width="40dp"
+                 android:layout_height="40dp"
+                 android:layout_marginEnd="8dp"
+-                android:backgroundTint="#E3F2FD"
+-                android:text="✏️"
+-                android:textSize="16sp"
+-                app:cornerRadius="20dp"
+-                app:strokeWidth="0dp"
+-                android:insetTop="0dp"
+-                android:insetBottom="0dp"
+-                style="@style/Widget.MaterialComponents.Button.TextButton"/>
++                android:src="@drawable/ic_edit"
++                android:scaleType="centerInside"
++                android:contentDescription="Edit branch"
++                style="@style/Widget.AppCompat.Button.Borderless"/>
+ 
+-            <com.google.android.material.button.MaterialButton
++            <ImageButton
+                 android:id="@+id/btnDelete"
+                 android:layout_width="40dp"
+                 android:layout_height="40dp"
+-                android:backgroundTint="#FFEBEE"
+-                android:text="🗑️"
+-                android:textSize="16sp"
+-                app:cornerRadius="20dp"
+-                app:strokeWidth="0dp"
+-                android:insetTop="0dp"
+-                android:insetBottom="0dp"
+-                style="@style/Widget.MaterialComponents.Button.TextButton"/>
++                android:src="@drawable/ic_delete"
++                android:scaleType="centerInside"
++                android:contentDescription="Delete branch"
++                style="@style/Widget.AppCompat.Button.Borderless"/>
+         </LinearLayout>
+     </LinearLayout>
+ </androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_phone.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_phone.xml b/app/src/main/res/drawable/ic_phone.xml
+new file mode 100644
+--- /dev/null	(date 1757483292272)
++++ b/app/src/main/res/drawable/ic_phone.xml	(date 1757483292272)
+@@ -0,0 +1,5 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="24dp" android:tint="#000000" android:viewportHeight="24" android:viewportWidth="24" android:width="24dp">
++      
++    <path android:fillColor="@android:color/white" android:pathData="M19.23,15.26l-2.54,-0.29c-0.61,-0.07 -1.21,0.14 -1.64,0.57l-1.84,1.84c-2.83,-1.44 -5.15,-3.75 -6.59,-6.59l1.85,-1.85c0.43,-0.43 0.64,-1.03 0.57,-1.64l-0.29,-2.52c-0.12,-1.01 -0.97,-1.77 -1.99,-1.77H5.03c-1.13,0 -2.07,0.94 -2,2.07 0.53,8.54 7.36,15.36 15.89,15.89 1.13,0.07 2.07,-0.87 2.07,-2v-1.73c0.01,-1.01 -0.75,-1.86 -1.76,-1.98z"/>
++    
++</vector>
+Index: app/src/main/res/drawable/card_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/card_background.xml b/app/src/main/res/drawable/card_background.xml
+new file mode 100644
+--- /dev/null	(date 1757482821948)
++++ b/app/src/main/res/drawable/card_background.xml	(date 1757482821948)
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<shape xmlns:android="http://schemas.android.com/apk/res/android">
++    <solid android:color="@android:color/white"/>
++    <corners android:radius="8dp"/>
++</shape>
+\ No newline at end of file
+Index: app/src/main/res/drawable/edit_text_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/edit_text_background.xml b/app/src/main/res/drawable/edit_text_background.xml
+new file mode 100644
+--- /dev/null	(date 1757482848661)
++++ b/app/src/main/res/drawable/edit_text_background.xml	(date 1757482848661)
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<shape xmlns:android="http://schemas.android.com/apk/res/android">
++    <solid android:color="#F5F5F5"/>
++    <corners android:radius="4dp"/>
++</shape>
+\ No newline at end of file
+Index: app/src/main/res/drawable/ic_edit.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/ic_edit.xml b/app/src/main/res/drawable/ic_edit.xml
+new file mode 100644
+--- /dev/null	(date 1757483757343)
++++ b/app/src/main/res/drawable/ic_edit.xml	(date 1757483757343)
+@@ -0,0 +1,5 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="24dp" android:tint="#000000" android:viewportHeight="24" android:viewportWidth="24" android:width="24dp">
++      
++    <path android:fillColor="@android:color/white" android:pathData="M3,17.46v3.04c0,0.28 0.22,0.5 0.5,0.5h3.04c0.13,0 0.26,-0.05 0.35,-0.15L17.81,9.94l-3.75,-3.75L3.15,17.1c-0.1,0.1 -0.15,0.22 -0.15,0.36zM20.71,7.04c0.39,-0.39 0.39,-1.02 0,-1.41l-2.34,-2.34c-0.39,-0.39 -1.02,-0.39 -1.41,0l-1.83,1.83 3.75,3.75 1.83,-1.83z"/>
++    
++</vector>
