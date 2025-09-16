@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.*;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.fragment.app.Fragment;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
@@ -90,22 +91,28 @@ public class OrderTrackingFragment extends Fragment {
             map.getController().setCenter(centerPoint);
             map.getController().setZoom(14.0);
 
+            // 🏬 Branch Marker
             Marker branchMarker = new Marker(map);
             branchMarker.setPosition(fromPoint);
             branchMarker.setTitle("Pizza Mania Branch");
             branchMarker.setSnippet(branchName);
+            branchMarker.setIcon(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_branch));
             map.getOverlays().add(branchMarker);
 
+            // 🏠 Customer Marker
             Marker customerMarker = new Marker(map);
             customerMarker.setPosition(toPoint);
             customerMarker.setTitle("Delivery Location");
             customerMarker.setSnippet("Your destination");
+            customerMarker.setIcon(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_customer));
             map.getOverlays().add(customerMarker);
 
+            // 🚗 Driver Marker
             driverMarker = new Marker(map);
             driverMarker.setPosition(fromPoint);
             driverMarker.setTitle("Delivery Driver");
             driverMarker.setSnippet("On the way");
+            driverMarker.setIcon(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_delivery));
             map.getOverlays().add(driverMarker);
 
             drawRoute();

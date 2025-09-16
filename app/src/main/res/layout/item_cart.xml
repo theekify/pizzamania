@@ -21,7 +21,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_placeholder"
+            android:src="@drawable/ic_error"
             app:shapeAppearanceOverlay="@drawable/rounded_edittext"
             app:strokeColor="#F0F0F0"
             app:strokeWidth="1dp"
