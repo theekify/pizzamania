@@ -41,7 +41,7 @@
         android:id="@+id/titleBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Taste the Difference with a"
+        android:text="Taste the Difference with"
         android:textSize="34sp"
         android:textColor="@android:color/black"
         android:textStyle="bold"
