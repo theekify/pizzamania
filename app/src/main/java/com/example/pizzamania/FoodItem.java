@@ -37,6 +37,7 @@ public class FoodItem {
         this.quantity = 1;
     }
 
+    // Getters and Setters
     public String getId() { return id; }
     public String getName() { return name; }
     public String getPrice() { return price; }
@@ -64,7 +65,6 @@ public class FoodItem {
         if (quantity > 1) this.quantity--;
     }
 
-    // Add this method for proper comparison in CartManager
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -72,7 +72,6 @@ public class FoodItem {
 
         FoodItem foodItem = (FoodItem) obj;
 
-        // Compare by ID if available, otherwise by name and price
         if (id != null && foodItem.id != null) {
             return id.equals(foodItem.id);
         }
@@ -82,7 +81,6 @@ public class FoodItem {
                 java.util.Objects.equals(imageUrl, foodItem.imageUrl);
     }
 
-    // Also override hashCode when overriding equals
     @Override
     public int hashCode() {
         if (id != null) {

@@ -10,4 +10,9 @@ public class ApiRoutes {
     public static String getPizzaById(String id) {
         return PIZZAS + "/" + id;
     }
+
+    public static String updatePizza(String id) { return PIZZAS + "/" + id; }
+
+    public static String deletePizza(String id) { return PIZZAS + "/" + id; }
+
 }

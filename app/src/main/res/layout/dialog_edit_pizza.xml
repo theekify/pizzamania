@@ -5,20 +5,49 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pizza Name"
+        android:textSize="14sp"
+        android:layout_marginBottom="4dp"/>
+
     <EditText
         android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:hint="Pizza Name"
-        android:inputType="text"/>
+        android:hint="Enter pizza name"
+        android:inputType="textCapWords"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Price (Rs)"
+        android:textSize="14sp"
+        android:layout_marginBottom="4dp"/>
 
     <EditText
         android:id="@+id/etPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Price"
+        android:hint="Enter price"
         android:inputType="numberDecimal"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Image URL"
+        android:textSize="14sp"
+        android:layout_marginBottom="4dp"/>
+
+    <EditText
+        android:id="@+id/etImageUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter image URL"
+        android:inputType="textUri"
+        android:layout_marginBottom="8dp"/>
 
 </LinearLayout>

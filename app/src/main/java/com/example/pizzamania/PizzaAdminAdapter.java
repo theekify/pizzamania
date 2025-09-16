@@ -42,6 +42,8 @@ public class PizzaAdminAdapter extends RecyclerView.Adapter<PizzaAdminAdapter.Vi
                     .placeholder(android.R.drawable.ic_menu_gallery)
                     .error(android.R.drawable.ic_menu_report_image)
                     .into(holder.image);
+        } else {
+            holder.image.setImageResource(android.R.drawable.ic_menu_gallery);
         }
 
         holder.btnDelete.setOnClickListener(v -> {
@@ -51,7 +53,6 @@ public class PizzaAdminAdapter extends RecyclerView.Adapter<PizzaAdminAdapter.Vi
         });
 
         holder.btnEdit.setOnClickListener(v -> {
-            // Show edit dialog instead of trying to edit directly in the list
             showEditDialog(item);
         });
     }
@@ -63,19 +64,24 @@ public class PizzaAdminAdapter extends RecyclerView.Adapter<PizzaAdminAdapter.Vi
         View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_edit_pizza, null);
         EditText etName = dialogView.findViewById(R.id.etName);
         EditText etPrice = dialogView.findViewById(R.id.etPrice);
+        EditText etImageUrl = dialogView.findViewById(R.id.etImageUrl);
 
         etName.setText(item.getName());
         etPrice.setText(item.getPrice());
+        etImageUrl.setText(item.getImageUrl());
 
         builder.setView(dialogView);
         builder.setPositiveButton("Save", (dialog, which) -> {
             String newName = etName.getText().toString().trim();
             String newPrice = etPrice.getText().toString().trim();
+            String newImageUrl = etImageUrl.getText().toString().trim();
 
             if (!newName.isEmpty() && !newPrice.isEmpty()) {
                 if (updateListener != null) {
-                    updateListener.onUpdate(item.getId(), newName, newPrice);
+                    updateListener.onUpdate(item.getId(), newName, newPrice, newImageUrl);
                 }
+            } else {
+                Toast.makeText(context, "Please fill name and price fields", Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("Cancel", null);
@@ -87,7 +93,7 @@ public class PizzaAdminAdapter extends RecyclerView.Adapter<PizzaAdminAdapter.Vi
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
-        TextView name, price; // Changed from EditText to TextView
+        TextView name, price;
         Button btnEdit, btnDelete;
 
         public ViewHolder(@NonNull View v) {
@@ -105,6 +111,6 @@ public class PizzaAdminAdapter extends RecyclerView.Adapter<PizzaAdminAdapter.Vi
     }
 
     public interface OnUpdateListener {
-        void onUpdate(String id, String newName, String newPrice);
+        void onUpdate(String id, String newName, String newPrice, String newImageUrl);
     }
 }
