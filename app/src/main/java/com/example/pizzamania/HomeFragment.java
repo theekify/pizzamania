@@ -40,22 +40,35 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         requestQueue = Volley.newRequestQueue(getContext());
-        fetchMenuData();
 
         return v;
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        fetchMenuData();
+    }
+
     private void fetchMenuData() {
+        if (!isAdded() || getContext() == null) {
+            return; // Fragment is not attached, skip the request
+        }
+
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, API_URL, null,
                 response -> {
+                    if (!isAdded() || getContext() == null) return;
+
                     if (response.length() > 0) {
                         parseMenu(response);
                     } else {
-                        Toast.makeText(getContext(), "No menu items found!", Toast.LENGTH_SHORT).show();
+                        showToastSafe("No menu items found!");
                     }
                 },
                 error -> {
-                    Toast.makeText(getContext(), "Failed to fetch menu! Check your internet connection", Toast.LENGTH_SHORT).show();
+                    if (!isAdded() || getContext() == null) return;
+
+                    showToastSafe("Failed to fetch menu! Check your internet connection");
                     error.printStackTrace();
                 }
         );
@@ -64,6 +77,10 @@ public class HomeFragment extends Fragment {
     }
 
     private void parseMenu(JSONArray response) {
+        if (!isAdded() || getContext() == null) {
+            return;
+        }
+
         try {
             foodList.clear();
             for (int i = 0; i < response.length(); i++) {
@@ -75,10 +92,38 @@ public class HomeFragment extends Fragment {
 
                 foodList.add(new FoodItem(name, price, imageUrl));
             }
-            adapter.notifyDataSetChanged();
+
+            if (isAdded() && getContext() != null) {
+                requireActivity().runOnUiThread(() -> {
+                    if (isAdded() && getContext() != null) {
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(getContext(), "Error parsing menu data", Toast.LENGTH_SHORT).show();
+            showToastSafe("Error parsing menu data");
+        }
+    }
+
+    private void showToastSafe(String message) {
+        if (!isAdded() || getContext() == null) {
+            return;
+        }
+
+        requireActivity().runOnUiThread(() -> {
+            if (isAdded() && getContext() != null) {
+                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // Cancel any pending requests when fragment is destroyed
+        if (requestQueue != null) {
+            requestQueue.cancelAll(this);
         }
     }
 }

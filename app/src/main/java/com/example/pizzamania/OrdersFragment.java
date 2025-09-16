@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -59,7 +60,7 @@ public class OrdersFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         if (currentUserEmail == null || currentUserEmail.isEmpty()) {
-            Toast.makeText(requireContext(), "Please login to view orders", Toast.LENGTH_SHORT).show();
+            showToastSafe("Please login to view orders");
             return;
         }
 
@@ -68,7 +69,7 @@ public class OrdersFragment extends Fragment {
 
     public void requestLocationPermissions() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
-            Toast.makeText(requireContext(), "Location permission is recommended for better tracking.", Toast.LENGTH_LONG).show();
+            showToastSafe("Location permission is recommended for better tracking.");
         }
         ActivityCompat.requestPermissions(requireActivity(),
                 new String[]{
@@ -83,9 +84,9 @@ public class OrdersFragment extends Fragment {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(requireContext(), "Location permission granted.", Toast.LENGTH_SHORT).show();
+                showToastSafe("Location permission granted.");
             } else {
-                Toast.makeText(requireContext(), "Location permission denied. Tracking will still work.", Toast.LENGTH_LONG).show();
+                showToastSafe("Location permission denied. Tracking will still work.");
             }
         }
     }
@@ -102,19 +103,48 @@ public class OrdersFragment extends Fragment {
                             parseOrders(response);
                         } catch (Exception e) {
                             Log.e("OrdersFragment", "Error in response handling", e);
-                            Toast.makeText(requireContext(), "Error loading orders", Toast.LENGTH_SHORT).show();
+                            showToastSafe("Error loading orders");
                         }
                     },
                     error -> {
                         Log.e("OrdersFragment", "Network error: " + error.getMessage());
-                        Toast.makeText(requireContext(), "Network error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                        handleNetworkError(error);
                     }
             );
             VolleySingleton.getInstance(requireContext()).add(request);
         } catch (Exception e) {
             Log.e("OrdersFragment", "Error creating request", e);
-            Toast.makeText(requireContext(), "Error fetching orders", Toast.LENGTH_SHORT).show();
+            showToastSafe("Error fetching orders");
         }
+    }
+
+    private void handleNetworkError(VolleyError error) {
+        if (!isAdded() || getContext() == null) {
+            Log.d("OrdersFragment", "Fragment detached, ignoring network error");
+            return;
+        }
+
+        String errorMessage;
+        if (error.getCause() instanceof java.net.UnknownHostException) {
+            errorMessage = "No internet connection. Please check your network.";
+        } else {
+            errorMessage = "Network error: " + error.getMessage();
+        }
+
+        showToastSafe(errorMessage);
+    }
+
+    private void showToastSafe(String message) {
+        if (!isAdded() || getContext() == null) {
+            Log.d("OrdersFragment", "Fragment detached, cannot show toast: " + message);
+            return;
+        }
+
+        requireActivity().runOnUiThread(() -> {
+            if (isAdded() && getContext() != null) {
+                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void parseOrders(JSONArray jsonArray) {
@@ -198,21 +228,26 @@ public class OrdersFragment extends Fragment {
             }
 
             requireActivity().runOnUiThread(() -> {
+                if (!isAdded() || getContext() == null) {
+                    Log.d("OrdersFragment", "Fragment detached, ignoring UI update");
+                    return;
+                }
+
                 ordersList.clear();
                 ordersList.addAll(newOrdersList);
                 adapter.notifyDataSetChanged();
 
                 if (ordersList.isEmpty()) {
-                    Toast.makeText(requireContext(), "No orders found for your account", Toast.LENGTH_SHORT).show();
+                    showToastSafe("No orders found for your account");
                 } else {
-                    Toast.makeText(requireContext(), "Loaded " + ordersList.size() + " orders", Toast.LENGTH_SHORT).show();
+                    showToastSafe("Loaded " + ordersList.size() + " orders");
                 }
             });
 
         } catch (Exception e) {
             Log.e("OrdersFragment", "Error parsing orders", e);
             requireActivity().runOnUiThread(() -> {
-                Toast.makeText(requireContext(), "Error parsing orders", Toast.LENGTH_SHORT).show();
+                showToastSafe("Error parsing orders");
             });
         }
     }
