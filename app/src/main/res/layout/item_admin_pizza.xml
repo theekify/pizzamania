@@ -16,55 +16,62 @@
         android:padding="20dp"
         android:gravity="center_vertical">
 
+        <!-- Pizza Image -->
         <ImageView
             android:id="@+id/pizzaImage"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:scaleType="centerCrop"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="16dp"
             android:background="@android:drawable/ic_menu_gallery"
             android:backgroundTint="#E0E0E0"
-            android:elevation="2dp"/>
+            android:elevation="2dp" />
 
+        <!-- Text Container (takes remaining space) -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginEnd="16dp">
 
             <TextView
                 android:id="@+id/pizzaName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Chicken Supreme"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
+                android:ellipsize="end"
+                android:singleLine="true"
                 android:fontFamily="sans-serif-medium"
-                android:layout_marginBottom="6dp"/>
+                android:layout_marginBottom="6dp" />
 
             <TextView
                 android:id="@+id/pizzaPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Rs. 1450.00"
                 android:textSize="16sp"
                 android:textColor="#4CAF50"
                 android:textStyle="bold"
-                android:fontFamily="sans-serif-medium"/>
-
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:fontFamily="sans-serif-medium" />
         </LinearLayout>
 
         <!-- Action Buttons -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="20dp">
+            android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEdit"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginEnd="12dp"
+                android:layout_marginEnd="8dp"
                 android:backgroundTint="#E3F2FD"
                 app:icon="@drawable/ic_edit"
                 app:iconTint="#1976D2"
@@ -75,7 +82,7 @@
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:elevation="2dp"
-                style="@style/Widget.MaterialComponents.Button.TextButton"/>
+                style="@style/Widget.MaterialComponents.Button.TextButton" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnDelete"
@@ -91,7 +98,7 @@
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:elevation="2dp"
-                style="@style/Widget.MaterialComponents.Button.TextButton"/>
+                style="@style/Widget.MaterialComponents.Button.TextButton" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
